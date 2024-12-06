@@ -48,16 +48,17 @@ def mov2(L, a = 0, b = 0):
 
     return x, y, r
 T = np.linspace(0,0.99999,1000)
-
+T3 = [i for i in range(1,150)]
 L = 650
 T2 = [i for i in range(L**2-1)]
 X,Y, r= mov2(L)
 R = [np.mean(mov(15,i)[-1]) for i in T]
 R2 = [np.abs(r[i+1]-r[i]) for i in T2]
+R3 = [np.std(mov2(i)[-1]) for i in T3]
 #X = np.matrix.flatten(X)
 #Y = np.matrix.flatten(Y)
 
-plt.hist(R2)
+plt.plot(T3,R3)
 
 
 plt.show()
